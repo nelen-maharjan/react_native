@@ -10,6 +10,7 @@ export default function Index() {
         alignItems: "center",
       }}
     >
+      <Text className='font-bold text-2xl my-2 text-emerald-500'>Welcome to RealState</Text>
       <Link href={'/sign-in'}>Sign In</Link>
       <Link href={'/explore'}>Explore</Link>
       <Link href={'/profile'}>Profile</Link>
