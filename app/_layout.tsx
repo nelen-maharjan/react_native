@@ -5,7 +5,7 @@ import { useEffect } from "react";
 
 export default function RootLayout() {
   const [fontsLoaded] = useFonts({
-    "Rubic-Bold": require('../assets/fonts/Rubic-Bold.ttf'),
+    "Rubic-Bold": require('../assets/fonts/Rubik-Bold.ttf'),
     "Rubic-ExtraBold": require('../assets/fonts/Rubik-ExtraBold.ttf'),
     "Rubic-Light": require('../assets/fonts/Rubik-Light.ttf'),
     "Rubic-Medium": require('../assets/fonts/Rubik-Medium.ttf'),
