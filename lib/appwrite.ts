@@ -26,7 +26,27 @@ export async function login() {
       redirectUri
     );
 
-    if(!response) throw new Error('failed to login')
+    if(!response) throw new Error('failed to login');
+
+    const browserResult = await openAuthSessionAsync(
+        response.toString(),
+        redirectUri
+    )
+
+    if(browserResult !== 'success') throw new Error('Failed to login');
+    
+    const url = new URL(browserResult.url);
+
+    const secret = url.searchParams.get('secret')?.toString();
+    const userId = url.searchParams.get('secret')?.toString();
+
+    if(!secret || !userId) throw new Error('Failed to login');
+
+    const session = await account.createSession(secret, userId);
+
+    if(!session) throw new Error('Failed to create session');
+
+    return true;
   } catch (error) {
     console.log(error);
     return false;
