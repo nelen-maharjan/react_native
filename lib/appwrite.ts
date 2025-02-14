@@ -1,5 +1,6 @@
 import { Account, Avatars, Client, OAuthProvider } from "react-native-appwrite";
 import * as Linking from "expo-linking";
+import { openAuthSessionAsync } from "expo-web-browser";
 
 export const config = {
   platform: "com.react-native-crash-course",
@@ -33,7 +34,7 @@ export async function login() {
         redirectUri
     )
 
-    if(browserResult !== 'success') throw new Error('Failed to login');
+    if(browserResult.type !== 'success') throw new Error('Failed to login');
     
     const url = new URL(browserResult.url);
 
